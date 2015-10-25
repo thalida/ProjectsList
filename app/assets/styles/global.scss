@@ -74,5 +74,14 @@ body {
 
 .view {
 	display: block;
-	margin: 50px ($Site-Margin * 2);
+	margin: 50px auto;
+	width: (100% - ($Site-Margin * 4));
+
+	@media screen and (min-width: 500px) {
+		width: (100% - ($Site-Margin * 8));
+	}
+
+	@media screen and (min-width: 700px) {
+		width: (100% - ($Site-Margin * 10));
+	}
 }
