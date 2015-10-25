@@ -1,1 +1,61 @@
-.header {}
+.header {
+	@include clearfix;
+
+	padding: ($Site-Margin * 2);
+	width: 100%;
+
+	border-bottom: 1px solid rgba(black, 0.05);
+
+	&-photo {
+		display: block;
+		float: left;
+		height: 100px;
+		width: 100px;
+		overflow: hidden;
+
+		border-radius: 50%;
+
+		&-src {
+			width: 100%;
+		}
+	}
+
+	&-name {
+		@extend .text_header.h1;
+	}
+
+	&-title {
+		@extend .text_header.h3;
+	}
+
+	&-info {
+		float: left;
+		margin-top: 15px;
+		margin-left: 20px;
+	}
+
+	&-links {
+		float: right;
+		list-style-type: none;
+		padding: 0;
+		margin: 40px 0 0 0;
+
+		&-item {
+			float: left;
+			padding: 0 5px;
+			margin: 0 5px;
+		}
+
+		&-link {
+			@include extend('.text_link' '.color_black' '.size_normal');
+
+			// @extend .text_link;
+			// @extend .text_link.color_black;
+			// @extend .text_link.size_normal;
+
+			// &:hover {
+			// 	color: rgba(black, 0.4);
+			// }
+		}
+	}
+}

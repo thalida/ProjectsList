@@ -8,7 +8,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: white;
-  font: normal 300 16px/1.5 'Roboto Slab', serif;
+  font: normal 400 16px/1.5 'Roboto Slab', serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-transition: background-color linear 1s;
@@ -23,3 +23,83 @@ body {
   -ms-user-select: none;
   user-select: none;
   -webkit-tap-highlight-color: transparent; }
+
+.text_header {
+  color: black; }
+  .text_header.h1, .header-name {
+    font-size: 30px;
+    font-weight: 400; }
+  .text_header.h2, .list-view .projects-item-title {
+    font-size: 25px;
+    font-weight: 700; }
+  .text_header.h3, .header-title {
+    font-size: 14px;
+    font-weight: 400; }
+
+.text_link, .header-links-link, .list-view .projects-item-link {
+  text-decoration: none; }
+  .text_link.color_blue, .color_blue.header-links-link, .list-view .projects-item-link {
+    color: #007AE7; }
+    .text_link.color_blue:hover, .color_blue.header-links-link:hover, .list-view .projects-item-link:hover {
+      color: rgba(0, 122, 231, 0.8); }
+  .text_link.color_black, .header-links-link, .list-view .color_black.projects-item-link {
+    color: black; }
+    .text_link.color_black:hover, .header-links-link:hover, .list-view .color_black.projects-item-link:hover {
+      color: rgba(0, 0, 0, 0.7); }
+  .text_link.size_normal, .header-links-link, .list-view .projects-item-link {
+    font-size: 16px; }
+  .text_link.size_large, .size_large.header-links-link, .list-view .size_large.projects-item-link {
+    font-size: 18px; }
+
+.view, .list-view {
+  display: block;
+  margin: 50px 6.25%; }
+
+.header {
+  padding: 6.25%;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05); }
+  .header:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .header-photo {
+    display: block;
+    float: left;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    border-radius: 50%; }
+    .header-photo-src {
+      width: 100%; }
+  .header-info {
+    float: left;
+    margin-top: 15px;
+    margin-left: 20px; }
+  .header-links {
+    float: right;
+    list-style-type: none;
+    padding: 0;
+    margin: 40px 0 0 0; }
+    .header-links-item {
+      float: left;
+      padding: 0 5px;
+      margin: 0 5px; }
+
+.list-view .projects {
+  display: block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0; }
+  .list-view .projects-item {
+    display: block;
+    margin: 40px 0 0 0;
+    padding: 0; }
+    .list-view .projects-item-header {
+      margin-bottom: 20px; }
+    .list-view .projects-item-link {
+      float: right;
+      margin-top: 7px; }
+    .list-view .projects-item-desc {
+      font-size: 18px;
+      line-height: 1.4; }

@@ -1,1 +1,19 @@
-<div class="list-view">List</div>
+<app:header></app:header>
+
+<div class="list-view">
+	<div class="text_header h1">Projects</div>
+
+	<ul class="projects">
+		<li class="projects-item" ng-repeat="project in ::list.projects">
+			<div class="projects-item-header">
+				<span class="projects-item-title" ng-bind-html="project.title"></span>
+
+				<a  class="projects-item-link"
+					ng-if="project.link" ng-href="{{project.link.href}}">
+					{{project.link.title}}
+				</a>
+			</div>
+			<p class="projects-item-desc" ng-bind-html="project.desc"></p>
+		</li>
+	</ul>
+</div>

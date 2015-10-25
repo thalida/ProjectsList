@@ -1,4 +1,5 @@
 'use strict';
 
-require('./list.config');
+require('./list.factory');
 require('./list.controller');
+require('./list.config');

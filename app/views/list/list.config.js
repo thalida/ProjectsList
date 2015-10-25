@@ -5,7 +5,8 @@ app.config([
 	function($routeProvider) {
 		$routeProvider.when('/list', {
 			template: require('./list.view.html'),
-			controller: 'ListCtrl'
+			controller: 'ListCtrl',
+			controllerAs: 'list'
 		});
 	}
 ]);

@@ -16,4 +16,5 @@ app.run([function(){
 
 }]);
 
+require('./components');
 require('./views');

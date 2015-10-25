@@ -1,4 +1,6 @@
-@import 'assets/styles/general';
+$Site-Margin: 3.125%;
+
+@import 'assets/styles/global';
 @import 'assets/styles/mixins';
 
 @import 'components/header/header';

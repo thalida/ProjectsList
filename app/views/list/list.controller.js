@@ -1,8 +1,8 @@
 'use strict';
 
 app.controller('ListCtrl', [
-	'$scope',
-	function($scope) {
-
+	'ProjectsListDict',
+	function(ProjectsListDict) {
+		this.projects = ProjectsListDict.get();
 	}
 ]);
