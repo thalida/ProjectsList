@@ -1,1 +1,26 @@
-.links-view {}
+.links-view {
+	@extend .view;
+
+	.social_links {
+		display: block;
+		list-style-type: none;
+		padding: 0;
+		margin: 60px 0 0 0;
+
+		&-item {
+			display: block;
+			margin: 10px 0 0 0;
+			padding: 0;
+			font-size: 18px;
+
+			&-label {
+				font-weight: 300;
+				padding-right: 5px;
+			}
+
+			&-link {
+				@include extend('.text_link' '.color_black');
+			}
+		}
+	}
+}

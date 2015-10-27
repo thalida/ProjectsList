@@ -1,4 +1,4 @@
 'use strict';
 
-require('./links.config');
+require('./links.dict');
 require('./links.controller');

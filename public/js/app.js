@@ -20,7 +20,7 @@ app.run([function(){
 require('./components');
 require('./views');
 
-},{"./components":5,"./views":10,"angular":27,"angular-animate":21,"angular-route":23,"angular-sanitize":25}],2:[function(require,module,exports){
+},{"./components":5,"./views":9,"angular":25,"angular-animate":19,"angular-route":21,"angular-sanitize":23}],2:[function(require,module,exports){
 'use strict';
 
 app.directive('appHeader', [function(){
@@ -34,7 +34,7 @@ app.directive('appHeader', [function(){
 }]);
 
 },{"./header.html":3}],3:[function(require,module,exports){
-module.exports = '<header class="header">\n	<span class="header-photo">\n		<img class="header-photo-src" src="./assets/images/me_woctechshoot.2x.jpg"></span>\n	</span>\n\n	<div class="header-info">\n		<span class="header-name">thalida</span>\n		<div class="header-title">Frontend Developer</div>\n	</div>\n\n	<ul class="header-links">\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/about">About</a>\n		</li>\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/links">Find Me</a>\n		</li>\n	</ul>\n</header>\n';
+module.exports = '<header class="header">\n	<a class="header-home" href="/#/">\n		<span class="header-photo">\n			<img class="header-photo-src" src="./assets/images/me_woctechshoot.2x.jpg"></span>\n		</span>\n\n		<div class="header-info">\n			<span class="header-name">thalida</span>\n			<div class="header-title">Frontend Developer</div>\n		</div>\n	</a>\n\n	<ul class="header-links">\n		<!-- <li class="header-links-item">\n			<a class="header-links-link" href="/#/about">About</a>\n		</li> -->\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/links">Find Me</a>\n		</li>\n	</ul>\n</header>\n';
 },{}],4:[function(require,module,exports){
 'use strict';
 
@@ -58,9 +58,6 @@ app.config([
 	}
 ]);
 
-},{"./about.view.html":8}],7:[function(require,module,exports){
-'use strict';
-
 app.controller('AboutCtrl', [
 	'$scope',
 	function($scope) {
@@ -68,28 +65,27 @@ app.controller('AboutCtrl', [
 	}
 ]);
 
-},{}],8:[function(require,module,exports){
+},{"./about.view.html":7}],7:[function(require,module,exports){
 module.exports = '<div class="about-view">About</div>\n';
-},{}],9:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 'use strict';
 
-require('./about.config');
 require('./about.controller');
 
-},{"./about.config":6,"./about.controller":7}],10:[function(require,module,exports){
+},{"./about.controller":6}],9:[function(require,module,exports){
 'use strict';
 
 require('./about');
 require('./links');
 require('./list');
 
-},{"./about":9,"./links":11,"./list":15}],11:[function(require,module,exports){
+},{"./about":8,"./links":10,"./list":14}],10:[function(require,module,exports){
 'use strict';
 
-require('./links.config');
+require('./links.dict');
 require('./links.controller');
 
-},{"./links.config":12,"./links.controller":13}],12:[function(require,module,exports){
+},{"./links.controller":11,"./links.dict":12}],11:[function(require,module,exports){
 'use strict';
 
 app.config([
@@ -97,31 +93,69 @@ app.config([
 	function($routeProvider) {
 		$routeProvider.when('/links', {
 			template: require('./links.view.html'),
-			controller: 'LinksCtrl'
+			controller: 'LinksCtrl',
+			controllerAs: 'links'
 		});
 	}
 ]);
 
-},{"./links.view.html":14}],13:[function(require,module,exports){
-'use strict';
-
 app.controller('LinksCtrl', [
-	'$scope',
-	function($scope) {
-
+	'LinksDict',
+	function(LinksDict) {
+		this.social = LinksDict.get();
 	}
 ]);
 
-},{}],14:[function(require,module,exports){
-module.exports = '<div class="links-view">Links</div>\n';
-},{}],15:[function(require,module,exports){
+},{"./links.view.html":13}],12:[function(require,module,exports){
 'use strict';
 
-require('./list.factory');
-require('./list.controller');
-require('./list.config');
+app.factory('LinksDict', [function(){
+	var links;
 
-},{"./list.config":16,"./list.controller":17,"./list.factory":18}],16:[function(require,module,exports){
+	links = [
+		{
+			label: 'Personal Site',
+			href: 'http://thalida.com',
+			title: 'thalida.com'
+		},
+		{
+			label: 'GitHub',
+			href: 'http://github.com/thalida',
+			title: 'github.com/thalida'
+		},
+		{
+			label: 'Dribbble',
+			href: 'http://dribbble.com/thalida',
+			title: 'dribbble.com/thalida'
+		},
+		{
+			label: 'Medium',
+			href: 'http://medium.com/@thalidanoel',
+			title: 'medium.com/thalida'
+		},
+		{
+			label: 'Twitter',
+			href: 'http://twitter.com/thalidanoel',
+			title: 'thalida.com'
+		}
+	];
+
+	return {
+		get: function(){
+			return links;
+		}
+	};
+}]);
+
+},{}],13:[function(require,module,exports){
+module.exports = '<app:header></app:header>\n\n<div class="links-view">\n	<div class="text_header h1">Find me&hellip;</div>\n	<ul class="social_links">\n		<li class="social_links-item" ng-repeat="link in ::links.social">\n			<span class="social_links-item-label" ng-bind-html="link.label"></span>\n			<a class="social_links-item-link" ng-href="{{link.href}}">{{link.title}}</a>\n		</li>\n	</ul>\n</div>\n';
+},{}],14:[function(require,module,exports){
+'use strict';
+
+require('./projects.dict');
+require('./list.controller');
+
+},{"./list.controller":15,"./projects.dict":17}],15:[function(require,module,exports){
 'use strict';
 
 app.config([
@@ -135,9 +169,6 @@ app.config([
 	}
 ]);
 
-},{"./list.view.html":19}],17:[function(require,module,exports){
-'use strict';
-
 app.controller('ListCtrl', [
 	'ProjectsListDict',
 	function(ProjectsListDict) {
@@ -145,7 +176,9 @@ app.controller('ListCtrl', [
 	}
 ]);
 
-},{}],18:[function(require,module,exports){
+},{"./list.view.html":16}],16:[function(require,module,exports){
+module.exports = '<app:header></app:header>\n\n<div class="list-view">\n	<div class="text_header h1">Projects</div>\n\n	<ul class="projects">\n		<li class="projects-item" ng-repeat="project in ::list.projects">\n			<div class="projects-item-header">\n				<span class="projects-item-title" ng-bind-html="project.title"></span>\n\n				<a  class="projects-item-link"\n					ng-if="project.link" ng-href="{{project.link.href}}">\n					{{project.link.title}}\n				</a>\n			</div>\n			<p class="projects-item-desc" ng-bind-html="project.desc"></p>\n		</li>\n	</ul>\n</div>\n';
+},{}],17:[function(require,module,exports){
 'use strict';
 
 app.factory('ProjectsListDict', [function(){
@@ -193,9 +226,7 @@ app.factory('ProjectsListDict', [function(){
 	};
 }]);
 
-},{}],19:[function(require,module,exports){
-module.exports = '<app:header></app:header>\n\n<div class="list-view">\n	<div class="text_header h1">Projects</div>\n\n	<ul class="projects">\n		<li class="projects-item" ng-repeat="project in ::list.projects">\n			<div class="projects-item-header">\n				<span class="projects-item-title" ng-bind-html="project.title"></span>\n\n				<a  class="projects-item-link"\n					ng-if="project.link" ng-href="{{project.link.href}}">\n					{{project.link.title}}\n				</a>\n			</div>\n			<p class="projects-item-desc" ng-bind-html="project.desc"></p>\n		</li>\n	</ul>\n</div>\n';
-},{}],20:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -4125,11 +4156,11 @@ angular.module('ngAnimate', [])
 
 })(window, window.angular);
 
-},{}],21:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 require('./angular-animate');
 module.exports = 'ngAnimate';
 
-},{"./angular-animate":20}],22:[function(require,module,exports){
+},{"./angular-animate":18}],20:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -5122,11 +5153,11 @@ function ngViewFillContentFactory($compile, $controller, $route) {
 
 })(window, window.angular);
 
-},{}],23:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 require('./angular-route');
 module.exports = 'ngRoute';
 
-},{"./angular-route":22}],24:[function(require,module,exports){
+},{"./angular-route":20}],22:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -5811,11 +5842,11 @@ angular.module('ngSanitize').filter('linky', ['$sanitize', function($sanitize) {
 
 })(window, window.angular);
 
-},{}],25:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 require('./angular-sanitize');
 module.exports = 'ngSanitize';
 
-},{"./angular-sanitize":24}],26:[function(require,module,exports){
+},{"./angular-sanitize":22}],24:[function(require,module,exports){
 /**
  * @license AngularJS v1.4.7
  * (c) 2010-2015 Google, Inc. http://angularjs.org
@@ -34720,8 +34751,8 @@ $provide.value("$locale", {
 })(window, document);
 
 !window.angular.$$csp().noInlineStyle && window.angular.element(document.head).prepend('<style type="text/css">@charset "UTF-8";[ng\\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>');
-},{}],27:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 require('./angular');
 module.exports = angular;
 
-},{"./angular":26}]},{},[1]);
+},{"./angular":24}]},{},[1]);

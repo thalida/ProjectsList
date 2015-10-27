@@ -1,1 +1,11 @@
-<div class="links-view">Links</div>
+<app:header></app:header>
+
+<div class="links-view">
+	<div class="text_header h1">Find me&hellip;</div>
+	<ul class="social_links">
+		<li class="social_links-item" ng-repeat="link in ::links.social">
+			<span class="social_links-item-label" ng-bind-html="link.label"></span>
+			<a class="social_links-item-link" ng-href="{{link.href}}">{{link.title}}</a>
+		</li>
+	</ul>
+</div>
