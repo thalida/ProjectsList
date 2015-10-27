@@ -24,15 +24,15 @@ body {
   user-select: none;
   -webkit-tap-highlight-color: transparent; }
 
-.text_header {
+.text_header, .about-view .bio-header {
   color: black; }
-  .text_header.h1, .header-name {
+  .text_header.h1, .header-name, .about-view .h1.bio-header {
     font-size: 30px;
     font-weight: 400; }
-  .text_header.h2, .list-view .projects-item-title {
+  .text_header.h2, .about-view .bio-header, .list-view .projects-item-title {
     font-size: 25px;
     font-weight: 700; }
-  .text_header.h3, .header-title {
+  .text_header.h3, .header-title, .about-view .h3.bio-header {
     font-size: 14px;
     font-weight: 400; }
 
@@ -51,15 +51,15 @@ body {
   .text_link.size_large, .size_large.header-links-link, .links-view .size_large.social_links-item-link, .list-view .size_large.projects-item-link {
     font-size: 18px; }
 
-.view, .links-view, .list-view {
+.view, .about-view, .links-view, .list-view {
   display: block;
   margin: 50px auto;
   width: 87.5%; }
   @media screen and (min-width: 500px) {
-    .view, .links-view, .list-view {
+    .view, .about-view, .links-view, .list-view {
       width: 75%; } }
   @media screen and (min-width: 700px) {
-    .view, .links-view, .list-view {
+    .view, .about-view, .links-view, .list-view {
       width: 68.75%; } }
 
 .header {
@@ -77,15 +77,22 @@ body {
   .header-photo {
     display: block;
     float: left;
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
-    border-radius: 50%; }
+    width: 20%;
+    max-width: 100px;
+    overflow: hidden; }
     .header-photo-src {
-      width: 100%; }
+      width: 100%;
+      height: 100%;
+      border-radius: 50%; }
+  @media screen and (max-width: 450px) {
+    .header-name {
+      font-size: 22px; } }
+  @media screen and (max-width: 450px) {
+    .header-title {
+      font-size: 12px; } }
   .header-info {
     float: left;
-    margin-top: 15px;
+    margin-top: 1%;
     margin-left: 20px; }
   .header-links {
     float: right;
@@ -96,6 +103,27 @@ body {
       float: left;
       padding: 0 5px;
       margin: 0 5px; }
+    @media screen and (max-width: 450px) {
+      .header-links {
+        margin-top: 20px; }
+        .header-links-item {
+          padding: 0; } }
+
+.about-view .bio {
+  margin-top: 60px; }
+  .about-view .bio-image {
+    display: block;
+    float: left;
+    width: 32.36111%;
+    max-width: 466px;
+    min-width: 120px;
+    padding: 0 20px 0 0; }
+    .about-view .bio-image-src {
+      width: 100%;
+      height: 100%;
+      border-radius: 4px; }
+  .about-view .bio-text {
+    font-size: 18px; }
 
 .links-view .social_links {
   display: block;

@@ -16,28 +16,36 @@
 	&-photo {
 		display: block;
 		float: left;
-		height: 100px;
-		width: 100px;
+		width: 20%;
+		max-width: 100px;
 		overflow: hidden;
 
-		border-radius: 50%;
 
 		&-src {
 			width: 100%;
+			height: 100%;
+
+			border-radius: 50%;
 		}
 	}
 
 	&-name {
 		@extend .text_header.h1;
+		@media screen and (max-width: 450px) {
+			font-size: 22px;
+		}
 	}
 
 	&-title {
 		@extend .text_header.h3;
+		@media screen and (max-width: 450px) {
+			font-size: 12px;
+		}
 	}
 
 	&-info {
 		float: left;
-		margin-top: 15px;
+		margin-top: 1%;
 		margin-left: 20px;
 	}
 
@@ -55,14 +63,14 @@
 
 		&-link {
 			@include extend('.text_link' '.color_black' '.size_normal');
+		}
 
-			// @extend .text_link;
-			// @extend .text_link.color_black;
-			// @extend .text_link.size_normal;
+		@media screen and (max-width: 450px) {
+			margin-top: 20px;
 
-			// &:hover {
-			// 	color: rgba(black, 0.4);
-			// }
+			&-item {
+				padding: 0;
+			}
 		}
 	}
 }

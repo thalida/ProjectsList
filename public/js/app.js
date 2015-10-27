@@ -34,7 +34,7 @@ app.directive('appHeader', [function(){
 }]);
 
 },{"./header.html":3}],3:[function(require,module,exports){
-module.exports = '<header class="header">\n	<a class="header-home" href="/#/">\n		<span class="header-photo">\n			<img class="header-photo-src" src="./assets/images/me_woctechshoot.2x.jpg"></span>\n		</span>\n\n		<div class="header-info">\n			<span class="header-name">thalida</span>\n			<div class="header-title">Frontend Developer</div>\n		</div>\n	</a>\n\n	<ul class="header-links">\n		<!-- <li class="header-links-item">\n			<a class="header-links-link" href="/#/about">About</a>\n		</li> -->\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/links">Find Me</a>\n		</li>\n	</ul>\n</header>\n';
+module.exports = '<header class="header">\n	<a class="header-home" href="/#/">\n		<span class="header-photo">\n			<img class="header-photo-src" src="./assets/images/me_yellow.jpg"></span>\n		</span>\n\n		<div class="header-info">\n			<span class="header-name">thalida</span>\n			<div class="header-title">Frontend Developer</div>\n		</div>\n	</a>\n\n	<ul class="header-links">\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/about">About</a>\n		</li>\n		<li class="header-links-item">\n			<a class="header-links-link" href="/#/links">Find Me</a>\n		</li>\n	</ul>\n</header>\n';
 },{}],4:[function(require,module,exports){
 'use strict';
 
@@ -66,7 +66,7 @@ app.controller('AboutCtrl', [
 ]);
 
 },{"./about.view.html":7}],7:[function(require,module,exports){
-module.exports = '<div class="about-view">About</div>\n';
+module.exports = '<app:header></app:header>\n\n<div class="about-view">\n	<div class="text_header h1">About</div>\n	<div class="bio">\n		<span class="bio-image">\n			<img class="bio-image-src" src="./assets/images/me_woctechshoot.2x.jpg" />\n		</span>\n\n		<span class="bio-header">The Short</span>\n		<p class="bio-text">\n			Web Developer at OkCupid. Queer Cis Woman of Color. Harry Potter Fan Girl.\n		</p>\n\n		<span class="bio-header">The Long</span>\n		<p class="bio-text">\n			I\'m a young queer cisgender woman located in NYC. I’m a Mobile Developer for OkCupid, prior to moving to NYC I spent my teenage formative years in Maryland.\n		</p>\n		<p class="bio-text">\n			I like to pretend I\'m a roboticist, due to many-a-years doing robotics in both high school and college.  Alas, I am not, and in reality, I\'m probably one of the best dancers you’ll see at 2am.\n		</p>\n		<p class="bio-text">\n			I was lucky to have a wonderfully supportive mother, who got me this domain name, thalida.com, for my 16th birthday. It was one of the best gifts I’ve ever recieved in my life, and it set me on the path to beginning the developoer that I am today.\n		</p>\n		<p class="bio-text">\n			Over the many years the site has grown and changed as I have grown as a person and as a developer, and I must ssay that this collection is one of the best states the site has been in since it’s inception.\n		</p>\n	</div>\n</div>\n';
 },{}],8:[function(require,module,exports){
 'use strict';
 

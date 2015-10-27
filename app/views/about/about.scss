@@ -1,1 +1,36 @@
-.about-view {}
+.about-view {
+	@extend .view;
+
+	.bio {
+		margin-top: 60px;
+
+		&-image {
+			$defaultDocWidth: 1440;
+			$imgWidth: 466;
+			$dynamicWidth: ($imgWidth / $defaultDocWidth) * 100%;
+
+			display: block;
+			float: left;
+
+			width: $dynamicWidth;
+			max-width: $imgWidth + 0px;
+			min-width: 120px;
+
+			padding: 0 20px 0 0;
+
+			&-src {
+				width: 100%;
+				height: 100%;
+				border-radius: 4px;
+			}
+		}
+
+		&-header {
+			@include extend('.text_header' '.h2');
+		}
+
+		&-text {
+			font-size: 18px;
+		}
+	}
+}
