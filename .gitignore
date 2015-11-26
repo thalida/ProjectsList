@@ -6,3 +6,4 @@ tmp
 .idea
 .sass-cache/
 analytics.js
+buildConfig.js
