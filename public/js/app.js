@@ -136,7 +136,7 @@ app.factory('LinksDict', [function(){
 		{
 			label: 'Twitter',
 			href: 'http://twitter.com/thalidanoel',
-			title: 'thalida.com'
+			title: '@thalidanoel'
 		}
 	];
 
