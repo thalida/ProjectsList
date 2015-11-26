@@ -210,12 +210,16 @@ app.factory('ProjectsListDict', [function(){
 			}
 		},
 		{
-			title: 'EncodeDecode',
-			desc: 'A ciphers translator which will encode + decode a given piece of text.'
+			title: 'WordBird',
+			desc: 'A chrome plugin which will replace any words you choose with another one.',
+			link: {
+				href: 'https://github.com/thalida/WordBird',
+				title: 'GitHub Repo'
+			}
 		},
 		{
-			title: 'WordBird',
-			desc: 'A chrome plugin which will replace any words you choose with another one.'
+			title: 'EncodeDecode',
+			desc: 'A ciphers translator which will encode + decode a given piece of text.'
 		}
 	];
 
